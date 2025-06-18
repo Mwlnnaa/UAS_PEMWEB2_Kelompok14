@@ -9,12 +9,12 @@ class JenisProduk extends Model
 {
     use HasFactory;
 
-    protected $table = 'jenis_produk';
+    protected $table = 'jenis_produks';
     protected $fillable = ['nama'];
 
     public function produk()
     {
-        return $this->hasMany(Produk::class, 'jenis_produk_id');
+        return $this->hasMany(Produk::class, 'jenis_produks_id');
     }
 }
 

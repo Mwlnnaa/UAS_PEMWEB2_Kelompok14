@@ -9,11 +9,11 @@ class KategoriTokoh extends Model
 {
     use HasFactory;
 
-    protected $table = 'kategori_tokoh';
+    protected $table = 'kategori_tokohs';
     protected $fillable = ['nama'];
 
     public function testimoni()
     {
-        return $this->hasMany(Testimoni::class, 'kategori_tokoh_id');
+        return $this->hasMany(Testimoni::class, 'kategori_tokohs_id');
     }
 }

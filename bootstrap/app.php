@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use App\Http\Middleware\AdminMiddleware; // <<< TAMBAHKAN INI
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -11,7 +12,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // Daftarkan alias middleware Anda di sini
+        $middleware->alias([
+            'admin' => AdminMiddleware::class, // <<< TAMBAHKAN INI
+        ]);
+
+        // ... (middleware lainnya jika ada, biarkan apa adanya) ...
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
